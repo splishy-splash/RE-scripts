@@ -1,6 +1,6 @@
 ############################################################################################
 ##
-## IDA plugin template code shamelessly stolen from @herrcore's GitHub
+## IDA plugin template code shamelessly stolen from @herrcore's GitHub (with permission)
 ## https://github.com/OALabs/hexcopy-ida/blob/main/hexcopy.py
 ##
 ## One-Click MSDN search!
