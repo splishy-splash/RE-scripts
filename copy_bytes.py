@@ -1,4 +1,7 @@
-# Stolen from @herrcore's GitHub, added a function to
+# Stolen from @herrcore's GitHub, modified it so that you can copy a large block of bytes 
+# usage: in the IDAPython bar on the bottom of IDA, copy_bytes(start_addr, length, 'filename')
+# remeber to use '0x' if using hex values. filename needs quotes and will be saved in the same directory as the idb file.  
+
 import os
 import sys
 import idc
