@@ -257,7 +257,7 @@ def search_web():
         # it then gets the 'href' portion, but that is way longer than we want, and has data before and after it
         # so we take off the beginning part (/url?q=) with the first split
         # and we take off everything after the actual url (more google junk that starts with '&') with the 2nd split
-        msdn_page = soup.find('a', href=re.compile(r'https://docs.microsoft.com'))['href'].split("q=")[1].split('&')[0]
+        msdn_page = soup.find('a', href=re.compile(r'https://learn.microsoft.com'))['href'].split("q=")[1].split('&')[0]
         webbrowser.open(msdn_page)
     else:
         data = idc.get_highlighted_identifier()
@@ -269,7 +269,7 @@ def search_web():
         # it then gets the 'href' portion, but that is way longer than we want, and has data before and after it
         # so we take off the beginning part (/url?q=) with the first split
         # and we take off everything after the actual url (more google junk that starts with '&') with the 2nd split
-        msdn_page = soup.find('a', href=re.compile(r'https://docs.microsoft.com'))['href'].split("q=")[1].split('&')[0]
+        msdn_page = soup.find('a', href=re.compile(r'https://learn.microsoft.com'))['href'].split("q=")[1].split('&')[0]
         webbrowser.open(msdn_page)
     return
 
