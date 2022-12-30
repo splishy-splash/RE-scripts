@@ -223,7 +223,7 @@ def inject_search_actions(form, popup, form_type):
     # disassembly window
     #
 
-    if form_type == idaapi.BWN_DISASMS:
+    if (form_type == idaapi.BWN_DISASMS) or (form_type == idaapi.BWN_PSEUDOCODE):
         # insert the prefix action entry into the menu
         #
 
