@@ -263,6 +263,7 @@ def make_nops_py2():
             end = idaapi.get_item_end(ea)
         data = idc.get_bytes(start, end - start).encode('hex')
         for i, n in enumerate(data):
+            idaapi.patch_byte(start+i, 0x90)
             ida_nalt.hide_item(start+i)
  
 def make_nops_py3():
@@ -280,6 +281,7 @@ def make_nops_py3():
         # https://stackoverflow.com/questions/6624453/whats-the-correct-way-to-convert-bytes-to-a-hex-string-in-python-3
         data = idc.get_bytes(start, end - start).hex()
         for i, n in enumerate(data):
+            idaapi.patch_byte(start+i, 0x90)
             ida_nalt.hide_item(start+i)
  
 #------------------------------------------------------------------------------
