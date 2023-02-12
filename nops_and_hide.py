@@ -1,6 +1,6 @@
 ############################################################################################
-##
-## NOPs! 
+## framework and IDA Plugin structure based on @herrcore's plugins
+## NOPs!  
 ##
 ##
 ## To install:
@@ -8,16 +8,16 @@
 ##
 ## To run:
 ##      Highlight disassembly instructions and right click and select "NOPs" 
-##      The instructions will be turned into NOPs and automatically collapsed.
+##      The instructions will be automatically hidden.
 ##
 ############################################################################################
  
  
-__AUTHOR__ = 'SplishSplash'
+__AUTHOR__ = 'SplishSplash' # framework and IDA Plugin structure based on @herrcore's plugins 
  
 PLUGIN_NAME = "NOPs"
 PLUGIN_HOTKEY = 'Ctrl+U'
-VERSION = '1.0.0'
+VERSION = '1.1.0'
  
  
 import os
@@ -247,7 +247,7 @@ def inject_make_nops_actions(form, popup, form_type):
     return 0
  
 #------------------------------------------------------------------------------
-# Byte copy 
+# IDB Modification
 #------------------------------------------------------------------------------
  
 def make_nops_py2():
@@ -263,8 +263,7 @@ def make_nops_py2():
             end = idaapi.get_item_end(ea)
         data = idc.get_bytes(start, end - start).encode('hex')
         for i, n in enumerate(data):
-            idaapi.patch_byte(start+i, 0x90)
-        add_hidden_range(start, end, '[NOPs]','','',0xFFFFFF)
+            ida_nalt.hide_item(start+i)
  
 def make_nops_py3():
     """
@@ -281,8 +280,7 @@ def make_nops_py3():
         # https://stackoverflow.com/questions/6624453/whats-the-correct-way-to-convert-bytes-to-a-hex-string-in-python-3
         data = idc.get_bytes(start, end - start).hex()
         for i, n in enumerate(data):
-            idaapi.patch_byte(start+i, 0x90)
-        add_hidden_range(start, end, '[NOPs]','','',0xFFFFFF)
+            ida_nalt.hide_item(start+i)
  
 #------------------------------------------------------------------------------
 # IDA ctxt
